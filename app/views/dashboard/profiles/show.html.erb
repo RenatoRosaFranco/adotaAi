@@ -5,3 +5,8 @@
   <h4 class="bold">Bio</h4>
   <p><%= @profile.bio %></p>
 </div>
+<div class="field">
+  <%= link_to 'Editar Perfil',
+              edit_dashboard_profile_path,
+              class: 'btn btn-primary btn-lg top' %>
+</div>
