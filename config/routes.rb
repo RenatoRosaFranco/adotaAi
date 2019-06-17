@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Authentication
+  # @implemented
+  devise_for :users
+
+  # Dashboard
+  # @implemented
+  namespace :dashboard do
+
+  end
+
+  # Application
+  # @implemented
+  root to: 'home#index'
+  resources :contact, only: [:create]
 end
