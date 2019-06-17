@@ -1,0 +1,69 @@
+<%= form_for([:dashboard, @animal]) do |f| %>
+  <div class="field">
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name, class: 'form-control', required: 'required',
+    placeholder: 'Digite o nome', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate, 'Data Nascimento' %>
+    <%= f.date_field :birthdate, class: 'form-control', required: 'required',
+    placeholder: 'Digite a data de nascimento', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :animal_type, 'Tipo' %>
+    <%= f.select(:animal_type, {
+        'Cães' => 'Cães',
+        'Gatos' => 'Gatos',
+        'Pássaros' => 'Pássaros',
+        'Roedores' => 'Roedores',
+        'Outros' => 'Outros'
+    }, {prompt: 'Selecionar o tipo'},
+                       {class: 'form-control', required: 'required'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :animal_race, 'Raça' %>
+    <%= f.text_field :animal_type, class: 'form-control', required: 'required',
+    placeholder: 'Digite a raça', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :size, 'Porte' %>
+    <%= f.select(:size, {
+        'Mini ou Toy' => 'Mini',
+        'Pequeno'     => 'Pequeno',
+        'Médio'       => 'Médio',
+        'Grande'      => 'Grande',
+        'Gigante'     => 'Gigante'
+    },
+                       {prompt: 'Selecionar o Porte'},
+                       {class: 'form-control', required: 'required'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :gender, 'Sexo' %>
+    <%= f.select(:gender, {'Masculino' => 'Masculino', 'Feminino' => 'Feminino'},
+                       {prompt: 'Selecione o Genero'}, {class: 'form-control', required: 'required'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :vacined, 'Vacinado?' %><br>
+    <%= f.check_box :vacined %>
+  </div>
+  <div class="field">
+    <%= f.label :castred, 'Castrado?' %><br>
+    <%= f.check_box :castred %>
+  </div>
+  <div class="field">
+    <%= f.label :vermifuged, 'Vermifugado?' %><br>
+    <%= f.check_box :vermifuged %>
+  </div>
+  <div class="field">
+    <%= f.label :chiped, 'Chipado?' %><br>
+    <%= f.check_box :chiped %>
+  </div>
+  <div class="field">
+    <%= f.label :description, 'Descrição / Histórico' %>
+    <%= f.text_area :description, class: 'form-control', required: 'required',
+    placeholder: 'Digite a descrição', autocomplete: 'off' %>
+  </div>
+  <div class="field"><br>
+    <%= f.submit nil, class: 'btn btn-primary btn-lg top' %>
+  </div>
+<% end %>

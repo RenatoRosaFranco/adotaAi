@@ -1,0 +1,32 @@
+<%= link_to   'Adicionar Animal',
+    new_dashboard_animal_path,
+              class: 'btn btn-primary btn-lg top' %>
+
+<br><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>Nome</td>
+      <td>Genero</td>
+      <td>Idade</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @animals.each do |animal| %>
+      <tr>
+        <td><%= link_to animal.name, [:dashboard, animal  ] %></td>
+        <td><%= animal.gender %></td>
+        <td><%= animal.getAge %></td>
+        <% if current_user.eql?(animal.user) %>
+        <td>
+          <%= link_to 'Visualizar', [:dashboard, animal] %>
+          <%= link_to 'Editar', edit_dashboard_animal_path(animal)  %>
+          <%= link_to 'Excluir', [:dashboard, animal], :method => :delete,
+          data: { confirm: 'Realmente deseja remover?' } %>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

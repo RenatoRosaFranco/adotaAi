@@ -1,0 +1,10 @@
+<%= form_for( [:dashboard, @profile]) do |f| %>
+  <div class="field">
+    <%= f.label :bio, 'Bio' %>
+    <%= f.text_area :bio, class: 'form-control', required: 'required',
+    placeholder: 'Digite a sua biografia', autocomplete: 'off' %>
+  </div>
+  <div class="field"><br>
+    <%= f.submit 'Atualizar Perfil', class: 'btn btn-primary btn-lg top' %>
+  </div>
+<% end %>

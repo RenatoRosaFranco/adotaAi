@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <title>AdotaAi</title>
+    <meta charset="UTF-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css"><%= yield :css %></style>
+    <script type="text/javascript"><%= yield :js %></script>
   </head>
+  <body class="<%= controller.controller_name %>" data-spy="scroll">
+    <div class="container">
+      <% if notice %>
+       <div class="col-md-12">
+          <p class="alert alert-success" id="notice">
+            <%= notice %>
+          </p>
+       </div>
+      <% end %>
 
-  <body>
-    <%= yield %>
+      <%= render partial: 'layouts/header' %>
+      <%= yield %>
+      <%= render partial: 'layouts/footer' %>
+    </div>
   </body>
 </html>

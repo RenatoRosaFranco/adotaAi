@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Bem vindo <%= link_to @profile.user.email %></h1>
+      <%= link_to 'Editar Perfil', edit_dashboard_profile_path(current_user),
+      class: 'btn btn-primary btn-lg top' %>
+    </div>
+  </div>
+</div>
