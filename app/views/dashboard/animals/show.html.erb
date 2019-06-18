@@ -50,6 +50,11 @@
   <p><%= @animal.description %></p>
 </div>
 <div class="field">
+  <%= link_to 'Gostei', '', class: 'btn btn-primary btn-lg top' %>
+  <%= link_to 'Quero Adotar', '', class: 'btn btn-primary btn-lg top' %>
+
+  <% if current_user.eql? @animal.user %>
   <%= link_to 'Editar Adoção', edit_dashboard_animal_path(@animal),
                 class: 'btn btn-primary btn-lg top' %>
+    <% end %>
 </div>

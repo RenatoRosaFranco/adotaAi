@@ -1,12 +1,16 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
 
-  namespace :dashboard do
-    get 'profiles/index'
-  end
+  # Admin
+  # @implemented
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   # Authentication
   # @implemented
-  devise_for :users
+  devise_for :users, :controllers => {
+      :omniauth_callbacks => 'users/omniauth_callbacks'
+  }
 
   # Dashboard
   # @implemented

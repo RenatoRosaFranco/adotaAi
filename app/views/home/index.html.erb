@@ -24,13 +24,19 @@
             <div class="panel panel-default">
               <div class="jumbotron"></div>
               <div id="details" style="padding: 10px; margin-top: -40px;">
-                <h3><%= link_to animal.name, dashboard_animals_path(animal) %></h3>
+                <h3><%= link_to animal.name, [:dashboard, animal] %></h3>
                 <p><%= animal.description %></p>
                 <small class="badge"><%= animal.animal_race %></small>
               </div>
             </div>
           </div>
         <% end %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <%= paginate(@animals) %>
+          </div>
         </div>
 
       </div>

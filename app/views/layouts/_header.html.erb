@@ -18,16 +18,18 @@
       <ul class="nav navbar-nav">
       </ul>
 
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      <%= form_for :search, {html: {class: 'navbar-form navbar-left'}} do |f| %>
+          <div class="form-group">
+            <%= f.search_field :q, class: 'form-control', placeholder: 'Raça, Tipo, Tamanho...' %>
+          </div>
+        <%= f.submit 'Buscar', class: 'btn btn-default' %>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
+        <!--
         <li><%= link_to 'Veterinários', root_path %></li>
         <li><%= link_to 'Petshops', root_path %></li>
+        -->
         <li><%= link_to 'Criar Adoção', new_dashboard_animal_path %></li>
         <li><%= link_to 'Adote', dashboard_animals_path %></li>
         <% if current_user %>

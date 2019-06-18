@@ -2,6 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    @animals = Animal.all
+    @animals = Animal.all.page(params[:page]).per(2)
   end
 end
