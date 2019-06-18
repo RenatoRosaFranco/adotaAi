@@ -1,0 +1,52 @@
+<div class="field">
+  <%= image_tag(@animal.picture, width: 124, height: 124, style: 'border-radius: 124px;') %>
+</div>
+<div class="field">
+  <h4 class="bold">Nome</h4>
+  <p><%= @animal.name %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Tipo</h4>
+  <p><%= @animal.animal_type %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Raça</h4>
+  <p><%= @animal.animal_race %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Idade</h4>
+  <p><%= @animal.getAge %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Genero</h4>
+  <p><%= @animal.gender %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Porte</h4>
+  <p><%= @animal.size %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Vacinado?</h4>
+  <p><%= eval_boolean(@animal.vacined) %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Castrado?</h4>
+  <p><%= eval_boolean(@animal.castred) %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Vermifugado?</h4>
+  <p><%= eval_boolean(@animal.vermifuged) %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Chipado?</h4>
+  <p><%= eval_boolean(@animal.chiped) %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Descrição / Histórico</h4>
+  <p><%= @animal.description %></p>
+</div>
+
+<div class="field">
+  <%= link_to 'Editar Adoção', edit_dashboard_animal_path(@animal),
+                class: 'btn btn-primary btn-lg top' %>
+</div>

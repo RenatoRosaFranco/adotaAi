@@ -11,6 +11,11 @@ class User < ApplicationRecord
     save
   end
 
+  def revoke_admin_privileges
+    self.admin = false
+    save
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

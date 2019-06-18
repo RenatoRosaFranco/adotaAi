@@ -29,6 +29,7 @@ class Dashboard::AnimalsController < ApplicationController
   end
 
   def update
+    @animal = Animal.find(params[:id])
     @animal.update(animal_params)
     redirect_to [:dashboard, @animal], notice: 'Animal atualizado com sucesso.'
   end
@@ -42,6 +43,6 @@ class Dashboard::AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :birthdate, :animal_type, :animal_race, :size, :gender, :vacined, :castred, :vermifuged, :chiped, :description)
+    params.require(:animal).permit(:picture, :name, :birthdate, :animal_type, :animal_race, :size, :gender, :vacined, :castred, :vermifuged, :chiped, :description)
   end
 end

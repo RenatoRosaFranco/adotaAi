@@ -6,6 +6,7 @@
 <table class="table table-bordered">
   <thead>
     <tr>
+      <td>Picture</td>
       <td>Nome</td>
       <td>Genero</td>
       <td>Idade</td>
@@ -15,6 +16,9 @@
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
+        <% if animal.picture.present? %>
+          <td><%= image_tag(animal.picture, width: 124, height: 124) %></td>
+        <% end %>
         <td><%= link_to animal.name, [:dashboard, animal  ] %></td>
         <td><%= animal.gender %></td>
         <td><%= animal.getAge %></td>
