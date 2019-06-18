@@ -4,7 +4,7 @@ class Dashboard::AnimalsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @animals = Animal.all
+    @animals = Animal.all.page(params[:page]).per(7)
   end
 
   def show

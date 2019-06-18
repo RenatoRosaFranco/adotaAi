@@ -3,9 +3,22 @@
               class: 'btn btn-primary btn-lg top' %>
 
 <br><br>
+<%= form_for(:search) do |f| %>
+  <div class="field">
+    <div class="input-group">
+        <%= f.search_field :q, class: 'form-control',
+        placeholder: 'Raça, Tipo, Tamanha...' %>
+      <div class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+      </div>
+  </div>
+<% end %>
+
+<br><br>
 <table class="table table-bordered">
   <thead>
     <tr>
+      <td>Id</td>
       <td>Picture</td>
       <td>Nome</td>
       <td>Genero</td>
@@ -16,6 +29,9 @@
   <tbody>
     <% @animals.each do |animal| %>
       <tr>
+        <td>
+          <h2><%= animal.id %></h2>
+        </td>
         <% if animal.picture.present? %>
           <td><%= image_tag(animal.picture, width: 124, height: 124) %></td>
         <% end %>
@@ -34,3 +50,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="paginate" class="text-center">
+  <%= paginate(@animals) %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_17_235031) do
+ActiveRecord::Schema.define(version: 2019_06_18_111612) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 2019_06_17_235031) do
     t.index ["user_id"], name: "index_animals_on_user_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.boolean "capital"
+    t.integer "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.text "bio"
     t.integer "user_id"
@@ -59,6 +68,21 @@ ActiveRecord::Schema.define(version: 2019_06_17_235031) do
     t.datetime "updated_at", null: false
     t.string "avatar"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.string "acronym"
+    t.integer "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_states_on_region_id"
   end
 
   create_table "users", force: :cascade do |t|
