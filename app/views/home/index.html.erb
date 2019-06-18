@@ -1,2 +1,39 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<section id="presenter" class="jumbotron" style="margin-top: -20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="animals">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Dashboard', dashboard_path %></li>
+          <li><%= link_to 'Adote', dashboard_animals_path %></li>
+        </ul>
+
+        <div class="row">
+        <% @animals.each do |animal| %>
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="jumbotron"></div>
+              <div id="details" style="padding: 10px; margin-top: -40px;">
+                <h3><%= link_to animal.name, dashboard_animals_path(animal) %></h3>
+                <p><%= animal.description %></p>
+                <small class="badge"><%= animal.animal_race %></small>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

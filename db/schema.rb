@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_111612) do
+ActiveRecord::Schema.define(version: 2019_06_18_132700) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,7 +49,21 @@ ActiveRecord::Schema.define(version: 2019_06_18_111612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.string "addopted_situation"
     t.index ["user_id"], name: "index_animals_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "slug"
+    t.string "tags"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_categories_on_category_id"
+    t.index ["user_id"], name: "index_categories_on_user_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -67,7 +81,35 @@ ActiveRecord::Schema.define(version: 2019_06_18_111612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
+    t.string "name"
+    t.string "cpf"
+    t.string "cnpj"
+    t.date "birthdate"
+    t.string "gender"
+    t.string "email"
+    t.string "phone"
+    t.string "cep"
+    t.string "address"
+    t.integer "number"
+    t.string "complement"
+    t.string "neighborhood"
+    t.integer "state_id"
+    t.integer "city_id"
+    t.index ["city_id"], name: "index_profiles_on_city_id"
+    t.index ["state_id"], name: "index_profiles_on_state_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "info"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_races_on_category_id"
+    t.index ["user_id"], name: "index_races_on_user_id"
   end
 
   create_table "regions", force: :cascade do |t|

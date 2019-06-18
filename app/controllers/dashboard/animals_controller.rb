@@ -4,7 +4,7 @@ class Dashboard::AnimalsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @animals = Animal.all.page(params[:page]).per(7)
+    @animals = Animal.all.page(params[:page]).per(2)
   end
 
   def show
@@ -43,6 +43,6 @@ class Dashboard::AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:picture, :name, :birthdate, :animal_type, :animal_race, :size, :gender, :vacined, :castred, :vermifuged, :chiped, :description)
+    params.require(:animal).permit(:picture, :name, :birthdate, :animal_type, :animal_race, :size, :gender, :vacined, :castred, :vermifuged, :chiped, :addopted_situation, :description)
   end
 end

@@ -19,9 +19,12 @@
           </p>
        </div>
       <% end %>
+      </div>
 
       <%= render partial: 'layouts/header' %>
-      <%= yield %>
+      <div class="container" id="content" style="margin-top: 65px;">
+        <%= yield %>
+      </div>
       <%= render partial: 'layouts/footer' %>
     </div>
   </body>

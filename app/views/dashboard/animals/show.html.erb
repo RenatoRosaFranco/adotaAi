@@ -42,10 +42,13 @@
   <p><%= eval_boolean(@animal.chiped) %></p>
 </div>
 <div class="field">
+  <h4 class="bold">Situação de Adoção</h4>
+  <p><%= @animal.addopted_situation %></p>
+</div>
+<div class="field">
   <h4 class="bold">Descrição / Histórico</h4>
   <p><%= @animal.description %></p>
 </div>
-
 <div class="field">
   <%= link_to 'Editar Adoção', edit_dashboard_animal_path(@animal),
                 class: 'btn btn-primary btn-lg top' %>

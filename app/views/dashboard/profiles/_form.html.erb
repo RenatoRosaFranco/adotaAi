@@ -1,8 +1,68 @@
 <%= form_for( [:dashboard, @profile]) do |f| %>
   <div class="field">
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name, class: 'form-control', required: 'required',
+    placeholder: 'Digite o nome', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf, 'CPF' %>
+    <%= f.text_field :cpf, class: 'form-control', required: 'required',
+                     placeholder: 'Digite o CPF', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :cnpj, 'CNPJ' %>
+    <%= f.text_field :cnpj, class: 'form-control',
+                     placeholder: 'Digite o CNPJ', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate, 'Data de Nascimento' %>
+    <%= f.date_field :birthdate, class: 'form-control', required: 'required',
+                     placeholder: 'Digite o data', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, 'Telefone' %>
+    <%= f.phone_field :phone, class: 'form-control', required: 'required',
+    placeholder: 'Digite o telefone', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :cep, 'CEP' %>
+    <%= f.text_field :cep, class: 'form-control', required: 'required',
+    placeholder: 'Digite o CEP', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :address, 'Endereço' %>
+    <%= f.text_field :address, class: 'form-control', required: 'required',
+    placeholder: 'Digite o endereço', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :number, 'Numero' %>
+    <%= f.number_field :number, class: 'form-control', required: 'required',
+    placeholder: 'Digite o numero', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :complement, 'Complemento' %>
+    <%= f.text_field :complement, class: 'form-control',
+                       placeholder: 'Digite o Complemento', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label  :neighborhood, 'Bairro' %>
+    <%= f.text_field :neighborhood, class: 'form-control', required: 'required',
+    placeholder: 'Digite o bairro', autocomplete: 'off' %>
+  </div>
+  <div class="field">
     <%= f.label :bio, 'Bio' %>
     <%= f.text_area :bio, class: 'form-control', required: 'required',
     placeholder: 'Digite a sua biografia', autocomplete: 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :state_id, 'Estado' %>
+    <%= f.collection_select(:state_id, State.all.order(name: :asc), :id, :name,
+                            {prompt: 'Selecione o Estado'}, {class: 'form-control'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id, 'Cidade' %>
+    <%= f.collection_select(:city_id, City.all.order(name: :asc), :id, :name,
+                            {prompt: 'Selecione a Cidade'}, {class: 'form-control'}) %>
   </div>
   <div class="field"><br>
     <%= f.submit 'Atualizar Perfil', class: 'btn btn-primary btn-lg top' %>

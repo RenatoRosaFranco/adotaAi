@@ -7,7 +7,7 @@
   <div class="field">
     <div class="input-group">
         <%= f.search_field :q, class: 'form-control',
-        placeholder: 'Raça, Tipo, Tamanha...' %>
+        placeholder: 'Raça, Tipo, Tamanho...' %>
       <div class="input-group-addon">
         <i class="glyphicon glyphicon-search"></i>
       </div>
@@ -51,6 +51,7 @@
   </tbody>
 </table>
 
-<div id="paginate" class="text-center">
-  <%= paginate(@animals) %>
+  <div id="paginate" class="text-center">
+    <%= paginate(@animals) %>
+  </div>
 </div>

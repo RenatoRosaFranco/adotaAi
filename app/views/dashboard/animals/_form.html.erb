@@ -25,8 +25,8 @@
   </div>
   <div class="field">
     <%= f.label :animal_race, 'Raça' %>
-    <%= f.text_field :animal_race, class: 'form-control', required: 'required',
-    placeholder: 'Digite a raça', autocomplete: 'off' %>
+    <%= f.collection_select :animal_race, Race.all, :id, :name,
+                            {prompt: 'Selecionar Raça'}, {class: 'form-control', required: 'required'} %>
   </div>
   <div class="field">
     <%= f.label :size, 'Porte' %>
@@ -60,6 +60,12 @@
   <div class="field">
     <%= f.label :chiped, 'Chipado?' %><br>
     <%= f.check_box :chiped %>
+  </div>
+  <div class="field">
+    <%= f.label :addopted_situation, 'Situação de Adoção' %>
+    <%= f.select(:addopted_situation, Animal::SITUATIONS,
+                 {prompt: 'Selecione o estado de adoção'},
+                 {class: 'form-control', required: 'required'}) %>
   </div>
   <div class="field">
     <%= f.label :description, 'Descrição / Histórico' %>

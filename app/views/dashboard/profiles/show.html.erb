@@ -2,6 +2,58 @@
   <%= image_tag(@profile.avatar, width: 124, height: 124, style: 'border-radius: 124px;') %>
 </div>
 <div class="field">
+  <h4 class="bold">Nome</h4>
+  <p><%= @profile.name %></p>
+</div>
+<div class="field">
+  <h4 class="bold">CPF</h4>
+  <p><%= @profile.cpf %></p>
+</div>
+<div class="field">
+  <h4 class="bold">CNPJ</h4>
+  <p><%= @profile.cnpj %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Data de Nascimento</h4>
+  <p><%= @profile.birthdate %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Genero</h4>
+  <p><%= @profile.gender %></p>
+</div>
+<div class="field">
+  <h4 class="bold">E-mail</h4>
+  <p><%= @profile.email %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Telefone</h4>
+  <p><%= @profile.phone %></p>
+</div>
+<div class="field">
+  <h4 class="bold">CEP</h4>
+  <p><%= @profile.cep %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Endereço</h4>
+  <p><%= @profile.address %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Complemento</h4>
+  <p><%= @profile.complement %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Bairro</h4>
+  <p><%= @profile.neighborhood %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Cidade</h4>
+  <p><%= @profile.city.name %></p>
+</div>
+<div class="field">
+  <h4 class="bold">Estado</h4>
+  <p><%= @profile.state.name %></p>
+</div>
+<div class="field">
   <h4 class="bold">Bio</h4>
   <p><%= @profile.bio %></p>
 </div>
